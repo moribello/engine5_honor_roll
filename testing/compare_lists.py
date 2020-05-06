@@ -29,7 +29,6 @@ def compare_names(df, df2):
                     compared_names = compared_names.append(temp_series, ignore_index=True)
                     print("{} {} matches {} {}".format(firstname2, lastname2, firstname1[0], lastname1))
 
-#    print(compared_names)
     return compared_names
 
 def compare_dates(df):
@@ -53,13 +52,18 @@ def compare_dates(df):
         start = df.loc[i, 'Year Joined']
         print("{} Joined in {}".format(fullname, start))
         if start <= warstart:
-            print("{} was a member during {}".format(fullname, war))
-            temp_series = pd.Series(fullrow)
-            compared_dates = compared_dates.append(temp_series, ignore_index=True)
+            if yearleft >= warend:
+                print("{} was a member during {}".format(fullname, war))
+                temp_series = pd.Series(fullrow)
+                compared_dates = compared_dates.append(temp_series, ignore_index=True)
         elif start > warstart and start <= warend:
-            print("{} may have been a member during {}".format(fullname, war))
-            temp_series = pd.Series(fullrow)
-            compared_dates = compared_dates.append(temp_series, ignore_index=True)
+            if yearleft >= warend:
+                print("{} was a member during {}".format(fullname, war))
+                temp_series = pd.Series(fullrow)
+                compared_dates = compared_dates.append(temp_series, ignore_index=True)
+                print("{} may have been a member during {}".format(fullname, war))
+                temp_series = pd.Series(fullrow)
+                compared_dates = compared_dates.append(temp_series, ignore_index=True)
         else:
             print("{} was not a member during war".format(fullname))
     return compared_dates
