@@ -1,10 +1,19 @@
+Honor Roll Compilation Tools
+===================================
 This suite of tools was originally developed to assist in comparing lists of veterans who served from a particular town with a list of members in a particular engine company. Depending on your list you may or may not need every tool in the suite. The suite includes the following python scripts:
     split_names.py
     remove_spaces.py
     searchby_name.py
     compare_lists.py
 
-Usage and description follow:
+Pre-requisites
+--------------
+- Python 3
+- Numbpy
+- Pandas
+
+Usage and description for individual packages:
+----------------------------------------------
 
 split_names.py
 
