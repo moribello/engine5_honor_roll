@@ -1,7 +1,9 @@
 import numpy as np
 import pandas as pd
 
+
 def import_lists():
+    """This function prompts the user for two .csv lists and returns them """
     try:
         listname1 = input("Please select Veteran file to read: ")
         list1 = pd.read_csv(listname1+".csv")
